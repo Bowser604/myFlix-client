@@ -27387,43 +27387,26 @@ var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies, setMovies] = (0, _react.useState)([
-        {
-            id: 1,
-            Title: "Snatch",
-            Director: "Guy Ritchie",
-            ImageUrl: "https://snatch.fandom.com/wiki/Snatch?file=Snatch_Film_Poster.jpg",
-            Genre: "Crime"
-        },
-        {
-            id: 2,
-            Title: "Sicario",
-            Director: "Denis Villeneuve",
-            ImageUrl: "https://en.wikipedia.org/wiki/Sicario_(2015_film)#/media/File:Sicario_poster.jpg",
-            Genre: "Action"
-        },
-        {
-            id: 3,
-            Title: "Gladiator",
-            Director: "Ridley Scott",
-            ImageUrl: "https://en.wikipedia.org/wiki/Gladiator_(2000_film)#/media/File:Gladiator_(2000_film_poster).png",
-            Genre: "Action"
-        }
-    ]);
+    const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/").then((response)=>response.json()).then((movies)=>{
+            setMovies(movies);
+        }).catch((e)=>console.log(e));
+    }, []);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 37,
+        lineNumber: 22,
         columnNumber: 9
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 42,
+        lineNumber: 27,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27434,16 +27417,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 48,
+                lineNumber: 33,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 46,
+        lineNumber: 31,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "56ezsMdYUWwQX9mTXkVSUOMrxVM=");
+_s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
