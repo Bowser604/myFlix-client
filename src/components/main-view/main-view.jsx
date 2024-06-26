@@ -8,14 +8,24 @@ export const MainView = () => {
 const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-    fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/")
-    .then((response) => response.json())
-    .then(movies => {
-      setMovies(movies)
+    fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((movies) => {
+        const moviesApi = movies.map((movie) => {
+          return {
+            id: movie.id,
+            title: movie.title,
+            description: movie.description,
+            year: movie.year,
+            genre: movie.genre,
+            director: movie.director,
+            feature: movie.featured
+          }
+        });
+        setMovies(moviesApi);
     })
     .catch(e => console.log(e))
   }, []);
-
 
 if (selectedMovie) {
     return (
