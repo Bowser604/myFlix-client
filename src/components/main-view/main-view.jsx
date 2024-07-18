@@ -11,6 +11,7 @@ const [selectedMovie, setSelectedMovie] = useState(null);
     fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/movies")
       .then((response) => response.json())
       .then((movies) => {
+        console.log("movies", movies);
         const moviesApi = movies.map((movie) => {
           return {
             id: movie.id,
@@ -20,11 +21,11 @@ const [selectedMovie, setSelectedMovie] = useState(null);
             genre: movie.genre,
             director: movie.director,
             feature: movie.featured
-          }
+          };
         });
         setMovies(moviesApi);
     })
-    .catch(e => console.log(e))
+    .catch((e) => console.log(e));
   }, []);
 
 if (selectedMovie) {
