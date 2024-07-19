@@ -27326,48 +27326,53 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 const MovieCard = ({ movie, onMovieClick })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Card, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "movie-card",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Card.Img, {
-                variant: "top",
-                src: movie.imageUrl
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: movie.imageUrl,
+                alt: movie.title,
+                className: "movie-card-card-img"
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 8,
-                columnNumber: 9
+                columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Card.Body, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "movie-card-body",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Card.Title, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        className: "movie-card-title",
                         children: movie.title
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 10,
-                        columnNumber: 13
+                        columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Card.Text, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "movie-card-text",
                         children: movie.director.Name
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 11,
-                        columnNumber: 13
+                        columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Button, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: ()=>{
                             onMovieClick(movie);
                         },
-                        variant: "link",
+                        className: "movie-card-button",
                         children: "Open"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 12,
-                        columnNumber: 13
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 9,
-                columnNumber: 9
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
@@ -27381,9 +27386,10 @@ MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string.isRequired,
         imageUrl: (0, _propTypesDefault.default).string.isRequired,
-        director: (0, _propTypesDefault.default).string.isRequired
+        director: (0, _propTypesDefault.default).string.isRequired,
+        Name: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
-    onBookClick: (0, _propTypesDefault.default).func.isRequired
+    onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieCard");
