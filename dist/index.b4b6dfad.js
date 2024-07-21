@@ -27342,8 +27342,9 @@ MovieCard.propTypes = {
         id: (0, _propTypesDefault.default).string.isRequired,
         title: (0, _propTypesDefault.default).string.isRequired,
         imageUrl: (0, _propTypesDefault.default).string.isRequired,
-        director: (0, _propTypesDefault.default).string.isRequired,
-        Name: (0, _propTypesDefault.default).string.isRequired
+        director: (0, _propTypesDefault.default).shape({
+            Name: (0, _propTypesDefault.default).string.isRequired
+        }).isRequired
     }).isRequired,
     onBookClick: (0, _propTypesDefault.default).func.isRequired
 };
