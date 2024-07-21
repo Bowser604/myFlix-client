@@ -27254,17 +27254,16 @@ const MainView = ()=>{
     (0, _react.useEffect)(()=>{
         fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/movies").then((response)=>response.json()).then((movies)=>{
             console.log("movies", movies);
-            const moviesApi = movies.map((movie)=>{
-                return {
+            const moviesApi = movies.map((movie)=>({
                     id: movie.id,
-                    title: movie.title,
+                    title: movie.Title,
                     description: movie.description,
                     year: movie.year,
                     genre: movie.genre,
-                    director: movie.director,
-                    feature: movie.featured
-                };
-            });
+                    director: {
+                        Name: movie.Director.Name
+                    }
+                }));
             setMovies(moviesApi);
         }).catch((e)=>console.log(e));
     }, []);
@@ -27273,14 +27272,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 33,
+        lineNumber: 31,
         columnNumber: 9
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 38,
+        lineNumber: 36,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27291,12 +27290,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 44,
+                lineNumber: 42,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 42,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
@@ -27340,9 +27339,11 @@ const MovieCard = ({ movie, onMovieClick })=>{
 _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
+        id: (0, _propTypesDefault.default).string.isRequired,
         title: (0, _propTypesDefault.default).string.isRequired,
         imageUrl: (0, _propTypesDefault.default).string.isRequired,
-        director: (0, _propTypesDefault.default).string.isRequired
+        director: (0, _propTypesDefault.default).string.isRequired,
+        Name: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
     onBookClick: (0, _propTypesDefault.default).func.isRequired
 };
