@@ -4,14 +4,12 @@ import PropTypes from "prop-types";
 
 export const MovieCard = ({ movie, onMovieClick }) => {
     return (
-      <div
-      onClick={() => {
-        onMovieClick(movie);
-      }}
-      >
-        {movie.title}
-      </div>
-        );
+      <div onClick={() => onMovieClick(movie)}>
+        <img src={movie.imageUrl} alt={movie.title} className="movie-card_img" />
+        <h2>{movie.title}</h2>
+        <p>{movie.director.Name}</p>
+        </div>
+      );
     }; 
     MovieCard.propTypes = {
         movie: PropTypes.shape({
@@ -22,5 +20,5 @@ export const MovieCard = ({ movie, onMovieClick }) => {
               Name: PropTypes.string.isRequired
             }).isRequired
         }).isRequired,
-        onBookClick: PropTypes.func.isRequired
+        onMovieClick: PropTypes.func.isRequired
     };

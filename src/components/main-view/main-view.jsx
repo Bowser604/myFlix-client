@@ -19,11 +19,12 @@ export const MainView = () => {
             genre: movie.genre,
             director: {
               Name: movie.Director.Name
-            }
+            },
+            imageUrl: movie.imageUrl || ""
         }));
         setMovies(moviesApi);
-    })
-    .catch((e) => console.log(e));
+      })
+      .catch((e) => console.log(e));
   }, []);
 
 if (selectedMovie) {
