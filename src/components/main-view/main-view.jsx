@@ -12,15 +12,15 @@ export const MainView = () => {
       .then((movies) => {
         console.log("movies", movies);
         const moviesApi = movies.map((movie) => ({
-            id: movie.id,
+            id: movie._id,
             title: movie.Title,
-            description: movie.description,
-            year: movie.year,
-            genre: movie.genre,
+            description: movie.Description,
+            year: movie.Genre.Year,
+            genre: movie.Genre.Name,
             director: {
               Name: movie.Director.Name
             },
-            imageUrl: movie.imageUrl || ""
+            imageUrl: movie.ImageUrl,
         }));
         setMovies(moviesApi);
       })
