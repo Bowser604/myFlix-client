@@ -36,8 +36,7 @@ MovieView.propTypes = {
         year: PropTypes.string.isRequired,
         director: PropTypes.shape({
             Name: PropTypes.string.isRequired
-        }).isRequired,
-        imageUrl: PropTypes.string.isRequired
+        }).isRequired
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
   };
