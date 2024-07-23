@@ -28387,7 +28387,7 @@ _c = MovieView;
 MovieView.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         title: (0, _propTypesDefault.default).string.isRequired,
-        imageUrl: (0, _propTypesDefault.default).string.isRequired,
+        imageUrl: (0, _propTypesDefault.default).string,
         director: (0, _propTypesDefault.default).shape({
             Name: (0, _propTypesDefault.default).string
         }).isRequired,
