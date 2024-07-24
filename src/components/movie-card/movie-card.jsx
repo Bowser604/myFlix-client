@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 export const MovieCard = ({ movie, onMovieClick }) => {
     return (
       <div onClick={() => onMovieClick(movie)}>
-        <img src={movie.imageUrl} alt={movie.title} className="movie-card_img" />
         <h2>{movie.title}</h2>
         <p>{movie.director.Name}</p>
         </div>
