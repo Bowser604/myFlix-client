@@ -1,57 +1,35 @@
 import { useState, useEffect } from "react";
+import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-import { SignupView } from "../signup-view/signup-view";
+import { SignupView } from "../signup-view/signup-view"
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  const storedToken = localStorage.getItem("token");
-  const [user, setUser] = useState(storedUser? storedUser : null);
+  const [user, setUser] = useState(null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [token, setToken] = useState(storedToken? storedToken : null);
-
-  if(!user) {
-    return (
-      <>
-      <LoginView
-        OnLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }}
-      />
-      or
-      <SignupView />
-      </>
-    );
-  }
-
+  
   useEffect(() => {
-    if (!token) {
-      return;
-    }
-
-    fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/movies", {
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/movies")
       .then((response) => response.json())
-      .then((movies) => {
-        console.log("movies", movies);
-        const moviesApi = movies.map((movie) => ({
-            id: movie._id,
-            title: movie.Title,
-            description: movie.Description,
-            year: movie.Genre.Year,
-            genre: movie.Genre.Name,
-            director: {
-              Name: movie.Director.Name
-            }
-        }));
-        // set Movies(movies); ?
-        setMovies(moviesApi);
+      .then(movies=> {
+      setMovies(movies);
       })
       .catch((e) => console.log(e));
-  }, [token]);
+  }, []);
+
+if (!user) {
+  return (
+    <>
+    <LoginView onLoggedIn={(user, token) => {
+      setUser(user);
+      setToken(token);
+    }} />
+    or
+    <SignupView />
+    </>
+  );
+}
 
 if (selectedMovie) {
     return (
@@ -67,14 +45,20 @@ return (
     <div>
       {movies.map((movie) => (
         <MovieCard
-          key={movie.id}
+          key={movie._id}
           movie={movie}
           onMovieClick={(newSelectedMovie) => {
             setSelectedMovie(newSelectedMovie);
           }}
         />
       ))}
+      <button
+        onClick={() => {
+          setUser(null);
+        }}
+        >
+          Logout
+        </button>
     </div>
   );
 };
-<button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
