@@ -5,7 +5,7 @@ import { useState } from "react";
 export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [token, setToken] = useState("");
+
 
 
 const handleSubmit = (event) => {
@@ -28,7 +28,6 @@ fetch("https://cinema-flix-f0ab625d491b.herokuapp.com/login", {
         if (data.user) {
             localStorage.setItem("user", JSON.stringify(data.user));
             localStorage.setItem("token", data.token);
-            setToken(data.token);
             onLoggedIn(data.user, data.token);
            
         } else {
