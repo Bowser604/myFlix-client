@@ -13189,13 +13189,22 @@ textarea.form-control-lg {
 }
 
 .my-flix {
-  color: #4682b4;
+  color: #506a80;
 }
 
 body {
   text-align: center;
-  background-color: #add8e6;
-  border: 30px solid #67a6f4;
+  background-color: #c6e5ef;
+  border: 30px solid #4e6077;
   padding: 12px;
+}
+
+.back, button {
+  text-align: center;
+  background-color: #d3d4e2;
+  border: 3px solid green;
+  border-radius: 20px;
+  width: 100px;
+  padding: 4px 12px;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
