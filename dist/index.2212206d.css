@@ -13192,6 +13192,29 @@ textarea.form-control-lg {
   color: #506a80;
 }
 
+.movie-view {
+  text-align: left;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.back-button {
+  margin-bottom: 20px;
+}
+
+.movie-image img {
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+}
+
+.movie-details {
+  margin-top: 20px;
+}
+
 body {
   text-align: center;
   background-color: #c6e5ef;

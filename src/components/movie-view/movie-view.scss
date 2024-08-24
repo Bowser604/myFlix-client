@@ -1,3 +1,26 @@
+.movie-view {
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.back-button {
+    margin-bottom: 20px;
+}
+
+.movie-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.movie-details {
+    margin-top: 20px;
+}
+
 body {
     background-color: #c6e5ef;
     border: 30px solid rgb(78, 96, 119);
