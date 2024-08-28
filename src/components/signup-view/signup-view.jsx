@@ -1,5 +1,5 @@
-import{ useState } from "react"; 
-import{ Button, Form } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 
 export const SignupView = () => {
     const [username, setUsername] = useState("");
@@ -35,10 +35,10 @@ export const SignupView = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formUsername">
-            <Form.Label>
-                Username:
-            </Form.Label>
+            <Form.Group controlId="formUsername">
+                <Form.Label>
+                    Username:
+                </Form.Label>
                 <Form.Control
                     type="text"
                     value={username}
@@ -48,9 +48,9 @@ export const SignupView = () => {
                 />
             </Form.Group>
             <Form.Group controlId="formPassword">
-            <Form.Label>
-                Password:
-            </Form.Label>
+                <Form.Label>
+                    Password:
+                </Form.Label>
                 <Form.Control
                     type="password"
                     value={password}
@@ -59,9 +59,9 @@ export const SignupView = () => {
                 />
             </Form.Group>
             <Form.Group controlId="formEmail">
-            <Form.Label>
-                Email:
-            </Form.Label>
+                <Form.Label>
+                    Email:
+                </Form.Label>
                 <Form.Control
                     type="email"
                     value={email}
@@ -80,7 +80,7 @@ export const SignupView = () => {
                     required
                 />
             </Form.Group>
-                <Button variant="primary" type="submit">Signup</Button>
+            <Button variant="primary" type="submit">Signup</Button>
         </Form>
     );
 };

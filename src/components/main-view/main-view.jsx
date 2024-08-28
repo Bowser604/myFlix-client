@@ -10,10 +10,10 @@ export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
 
-  const [user, setUser] = useState(storedUser? storedUser : null);
+  const [user, setUser] = useState(storedUser ? storedUser : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [token, setToken] = useState(storedToken? storedToken : null);  
+  const [token, setToken] = useState(storedToken ? storedToken : null);
 
   useEffect(() => {
     if (!token) return;
@@ -28,11 +28,11 @@ export const MainView = () => {
       .catch((e) => console.log(e));
   }, [token]);
 
-if (!user) {
-  return (
-    <Row>
+  if (!user) {
+    return (
+      <Row>
         <Col md={5}>
-          <LoginView 
+          <LoginView
             onLoggedIn={(user, token) => {
               setUser(user);
               setToken(token);
@@ -42,22 +42,22 @@ if (!user) {
           />
         </Col>
         <Col md={5}>
-          <SignupView />  
+          <SignupView />
         </Col>
       </Row>
-      );
-    }
-  
-  if (selectedMovie) {
-    return (
-        <MovieView
-          movie={selectedMovie}
-          onBackClick={() => setSelectedMovie(null)}
-        />
     );
   }
 
-  if (movies/length == 0) {
+  if (selectedMovie) {
+    return (
+      <MovieView
+        movie={selectedMovie}
+        onBackClick={() => setSelectedMovie(null)}
+      />
+    );
+  }
+
+  if (movies / length == 0) {
     return <div>The list is empty!</div>;
   }
 
@@ -65,22 +65,22 @@ if (!user) {
     <Row>
       {movies.map((movie) => (
         <Col className="mb-5" key={movie._id} md={3}>
-        <MovieCard
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => setSelectedMovie(newSelectedMovie)}
+          <MovieCard
+            movie={movie}
+            onMovieClick={(newSelectedMovie) => setSelectedMovie(newSelectedMovie)}
           />
         </Col>
       ))}
       <button
-      onClick={() => {
-        setUser(null);
-        setToken(null);
-        localStorage.clear();
-      }}
+        onClick={() => {
+          setUser(null);
+          setToken(null);
+          localStorage.clear();
+        }}
 
-        >
-          Logout
-        </button>
+      >
+        Logout
+      </button>
     </Row>
   );
 };
